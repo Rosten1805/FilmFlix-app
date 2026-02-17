@@ -1,4 +1,4 @@
-# Verflix - Netflix-like Application
+# FilmFlix - Netflix-like Application
 
 Una aplicación tipo Netflix construida con TMDB API, React 18 (legacy), Tailwind CSS y shadcn/ui.
 
