@@ -18,18 +18,8 @@ export default async function Home() {
   // Fetch películas de animación
   const animationMoviesData = await tmdbClient.getAnimationMovies();
 
-  // Buscar Silent Hill Return para el hero
-  const silentHillSearch = await tmdbClient.searchMovies('Silent Hill Return');
-
-  // Crear lista de películas para el hero, excluyendo Greenland 2 y añadiendo Silent Hill al inicio
-  const heroMovies = nowPlayingData.results.filter(movie =>
-    movie.title !== 'Greenland 2' && movie.title !== 'Greenland: Migration'
-  ).slice(0, 9);
-
-  // Si encontramos Silent Hill Return, la ponemos al inicio
-  if (silentHillSearch.results.length > 0) {
-    heroMovies.unshift(silentHillSearch.results[0]);
-  }
+  // Hero: las 10 películas en cartelera más populares (dinámico)
+  const heroMovies = nowPlayingData.results.slice(0, 10);
 
   return (
     <div className="min-h-screen bg-[#0b0b0f] text-white">

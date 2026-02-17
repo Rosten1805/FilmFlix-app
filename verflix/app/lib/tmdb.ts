@@ -29,7 +29,7 @@ class TMDBClient {
     });
 
     const response = await fetch(url.toString(), {
-      next: { revalidate: 3600 } // Cache por 1 hora
+      next: { revalidate: 1800 } // Cache por 30 minutos
     });
 
     if (!response.ok) {

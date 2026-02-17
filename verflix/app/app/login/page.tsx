@@ -46,6 +46,15 @@ export default function LoginPage() {
           <h1 className="mb-6 text-center text-2xl font-bold text-white">Iniciar sesión</h1>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            <Link
+              href="/"
+              className="mb-2 flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-white"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Volver al inicio
+            </Link>
             <div>
               <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-zinc-300">
                 Correo electrónico
