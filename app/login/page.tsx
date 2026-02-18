@@ -20,12 +20,12 @@ export default function LoginPage() {
       return;
     }
 
-    // Fake login — just redirect to home
+    // Fake login â just redirect to home
     router.push('/');
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#0b0b0f] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#000000] px-4">
       <div className="w-full max-w-md space-y-8">
         {/* Logo */}
         <div className="flex justify-center">

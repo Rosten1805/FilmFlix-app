@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import SplashScreen from "@/components/SplashScreen";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} antialiased`}
       >
         <SplashScreen>
+          <Navbar />
           {children}
           <ScrollToTop />
         </SplashScreen>

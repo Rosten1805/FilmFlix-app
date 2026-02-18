@@ -59,7 +59,7 @@ export default function HeroBanner({ movies, mediaType = 'movie' }: HeroBannerPr
   const rating = currentMovie.vote_average > 0 ? formatRating(currentMovie.vote_average) : null;
 
   return (
-    <section className="relative h-[600px] w-full overflow-hidden">
+    <section className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -73,32 +73,32 @@ export default function HeroBanner({ movies, mediaType = 'movie' }: HeroBannerPr
 
         {/* Dark Gradient Overlay - More transparent for better image visibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0f] via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/20 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative flex h-full items-center pl-[65px] pr-4">
-        <div className="max-w-2xl space-y-4">
+      <div className="relative flex h-full items-center px-4 sm:px-6 lg:pl-[65px] lg:pr-4">
+        <div className="max-w-2xl space-y-2 sm:space-y-3 lg:space-y-4">
           {/* Badge */}
           <div>
-            <span className="inline-flex items-center rounded-full bg-red-600/80 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-md">
+            <span className="inline-flex items-center rounded-full bg-red-600/80 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-md">
               {mediaType === 'tv' ? 'Serie' : 'Película'}
             </span>
           </div>
 
           {/* Title */}
-          <h2 className="text-5xl font-bold leading-tight text-white md:text-6xl">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white lg:text-6xl">
             {title}
           </h2>
 
           {/* Metadata */}
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm">
             {rating && (
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className={`h-5 w-5 ${
+                    className={`h-3 sm:h-5 w-3 sm:w-5 ${
                       i < Math.round(currentMovie.vote_average / 2)
                         ? 'text-yellow-400'
                         : 'text-gray-600'
@@ -109,22 +109,22 @@ export default function HeroBanner({ movies, mediaType = 'movie' }: HeroBannerPr
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
-                <span className="ml-2 font-semibold text-white">{rating}</span>
+                <span className="ml-1 sm:ml-2 font-semibold text-white">{rating}</span>
               </div>
             )}
             <span className="text-zinc-300">{year}</span>
           </div>
 
           {/* Description */}
-          <p className="line-clamp-3 text-lg leading-relaxed text-zinc-300">
+          <p className="line-clamp-2 sm:line-clamp-3 text-sm sm:text-lg leading-relaxed text-zinc-300">
             {currentMovie.overview || 'Sin descripción disponible'}
           </p>
 
           {/* CTA Button */}
-          <div className="pt-2">
+          <div className="pt-1 sm:pt-2">
             <Link href={`/${mediaType}/${currentMovie.id}`}>
-              <button className="cursor-pointer flex items-center gap-2 rounded-lg bg-red-600/70 px-6 py-3 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-red-600/90">
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <button className="cursor-pointer flex items-center gap-2 rounded-lg bg-red-600/70 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-red-600/90">
+                <svg className="h-4 sm:h-5 w-4 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -144,20 +144,20 @@ export default function HeroBanner({ movies, mediaType = 'movie' }: HeroBannerPr
         <>
           <button
             onClick={goToPrevious}
-            className="cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white backdrop-blur-sm transition-all hover:bg-black/70"
+            className="cursor-pointer absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 sm:p-3 text-white backdrop-blur-sm transition-all hover:bg-black/70"
             aria-label="Anterior"
           >
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-5 sm:h-6 w-5 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
           <button
             onClick={goToNext}
-            className="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white backdrop-blur-sm transition-all hover:bg-black/70"
+            className="cursor-pointer absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 sm:p-3 text-white backdrop-blur-sm transition-all hover:bg-black/70"
             aria-label="Siguiente"
           >
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-5 sm:h-6 w-5 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -166,15 +166,15 @@ export default function HeroBanner({ movies, mediaType = 'movie' }: HeroBannerPr
 
       {/* Dots Navigation */}
       {movies.length > 1 && (
-        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-2">
+        <div className="absolute bottom-4 sm:bottom-8 left-1/2 flex -translate-x-1/2 gap-1 sm:gap-2">
           {movies.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`cursor-pointer h-1.5 rounded-full transition-all ${
+              className={`cursor-pointer h-1 sm:h-1.5 rounded-full transition-all ${
                 index === currentIndex
-                  ? 'w-8 bg-red-600'
-                  : 'w-1.5 bg-white/50 hover:bg-white/70'
+                  ? 'w-6 sm:w-8 bg-red-600'
+                  : 'w-1 sm:w-1.5 bg-white/50 hover:bg-white/70'
               }`}
               aria-label={`Ir a slide ${index + 1}`}
             />

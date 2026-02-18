@@ -114,7 +114,7 @@ export default function SearchBar({ className = '' }: SearchBarProps) {
 
         {/* Dropdown */}
         {showResults && (hasResults || (query && !isLoading)) && (
-          <div className="absolute right-0 top-12 z-50 w-[420px] max-h-[520px] overflow-y-auto rounded-xl border border-zinc-800 bg-zinc-900/98 shadow-2xl backdrop-blur-lg">
+          <div className="absolute right-0 top-12 z-50 w-screen max-w-[420px] max-h-[520px] overflow-y-auto rounded-xl border border-zinc-800 bg-zinc-900/98 shadow-2xl backdrop-blur-lg">
 
             {/* Películas */}
             {results.movies.length > 0 && (

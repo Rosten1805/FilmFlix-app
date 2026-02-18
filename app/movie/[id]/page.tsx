@@ -1,9 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { tmdbClient, getImageUrl, getYear, formatRating, formatRuntime } from '@/lib/tmdb';
 import CastCard from '@/components/CastCard';
 import MovieSlider from '@/components/MovieSlider';
-import SearchBar from '@/components/SearchBar';
 import Footer from '@/components/Footer';
 import TrailerSection from '@/components/TrailerSection';
 
@@ -32,59 +30,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
   const similarMovies = movie.similar?.results.slice(0, 30) || [];
 
   return (
-    <div className="min-h-screen bg-[#0b0b0f] text-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-black/95 backdrop-blur-sm">
-        <div className="mx-auto px-[65px] py-5">
-          <div className="flex items-center gap-8">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/logo-filmflix.png"
-                alt="FilmFlix Logo"
-                width={160}
-                height={53}
-                className="h-12 w-auto"
-                priority
-              />
-            </Link>
-
-            {/* Navigation Links */}
-            <nav className="hidden flex-1 gap-6 md:flex">
-              <Link href="/" className="cursor-pointer text-sm font-medium text-zinc-300 transition-colors hover:text-white">
-                Inicio
-              </Link>
-              <Link href="/movies" className="cursor-pointer text-sm font-medium text-zinc-300 transition-colors hover:text-white">
-                Películas
-              </Link>
-              <Link href="/tv" className="cursor-pointer text-sm font-medium text-zinc-300 transition-colors hover:text-white">
-                Series
-              </Link>
-              <Link href="/genres" className="cursor-pointer text-sm font-medium text-zinc-300 transition-colors hover:text-white">
-                Géneros
-              </Link>
-              <a href="/milista" className="cursor-pointer text-sm font-medium text-zinc-300 transition-colors hover:text-white">
-                Mi Lista
-              </a>
-            </nav>
-
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-4">
-              {/* Search Bar - Always Visible */}
-              <SearchBar className="w-[280px]" />
-
-              {/* Sign In Button */}
-              <Link href="/login" className="cursor-pointer flex h-9 items-center gap-2 text-sm font-medium text-zinc-300 transition-colors hover:text-white focus:outline-none focus:text-white">
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                </svg>
-                Iniciar sesión
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-[#000000] text-white">
       {/* Hero Section with Backdrop */}
       <section className="relative h-[500px] w-full overflow-hidden">
         {/* Background Image */}
@@ -100,7 +46,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
           {/* Dark Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0f] via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/40 to-transparent" />
         </div>
 
         {/* Content with Poster */}

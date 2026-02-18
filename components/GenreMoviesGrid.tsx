@@ -34,7 +34,7 @@ export default function GenreMoviesGrid({ initialMovies, genreId, totalPages }: 
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8">
+      <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
