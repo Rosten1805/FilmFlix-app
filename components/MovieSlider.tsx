@@ -38,24 +38,24 @@ export default function MovieSlider({ movies, title }: MovieSliderProps) {
         <div className="mb-3 sm:mb-4 flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-bold text-white">{title}</h2>
 
-          {/* Navigation Arrows - Top Right - Hidden on mobile, shown on sm and up */}
-          <div className="hidden sm:flex gap-2">
+          {/* Navigation Arrows - Top Right - Always visible */}
+          <div className="flex gap-2">
             <button
               onClick={() => scroll('left')}
-              className="rounded-full bg-red-600 p-2 text-white backdrop-blur-sm transition-all hover:bg-red-700"
+              className="rounded-full bg-red-600 p-1.5 sm:p-2 text-white transition-all hover:bg-red-700"
               aria-label="Scroll left"
             >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
             <button
               onClick={() => scroll('right')}
-              className="rounded-full bg-red-600 p-2 text-white backdrop-blur-sm transition-all hover:bg-red-700"
+              className="rounded-full bg-red-600 p-1.5 sm:p-2 text-white transition-all hover:bg-red-700"
               aria-label="Scroll right"
             >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -81,28 +81,7 @@ export default function MovieSlider({ movies, title }: MovieSliderProps) {
           ))}
         </div>
 
-        {/* Mobile Navigation Arrows - Shown only on mobile */}
-        <div className="absolute inset-0 flex items-center justify-between pointer-events-none sm:hidden px-2">
-          <button
-            onClick={() => scroll('left')}
-            className="pointer-events-auto rounded-full bg-red-600/80 p-2 text-white backdrop-blur-sm transition-all hover:bg-red-600/100"
-            aria-label="Scroll left"
-          >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
 
-          <button
-            onClick={() => scroll('right')}
-            className="pointer-events-auto rounded-full bg-red-600/80 p-2 text-white backdrop-blur-sm transition-all hover:bg-red-600/100"
-            aria-label="Scroll right"
-          >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
       </div>
 
       <style jsx>{`
