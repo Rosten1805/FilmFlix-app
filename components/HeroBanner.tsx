@@ -139,46 +139,43 @@ export default function HeroBanner({ movies, mediaType = 'movie' }: HeroBannerPr
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Bottom Controls: arrows + dots in a single row */}
       {movies.length > 1 && (
-        <>
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 sm:gap-3">
           <button
             onClick={goToPrevious}
-            className="cursor-pointer absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 sm:p-3 text-white backdrop-blur-sm transition-all hover:bg-black/70"
+            className="cursor-pointer rounded-full bg-black/50 p-1.5 sm:p-2 text-white backdrop-blur-sm transition-all hover:bg-black/70"
             aria-label="Anterior"
           >
-            <svg className="h-5 sm:h-6 w-5 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
+          <div className="flex items-center gap-1 sm:gap-2">
+            {movies.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`cursor-pointer h-1 sm:h-1.5 rounded-full transition-all ${
+                  index === currentIndex
+                    ? 'w-6 sm:w-8 bg-red-600'
+                    : 'w-1 sm:w-1.5 bg-white/50 hover:bg-white/70'
+                }`}
+                aria-label={`Ir a slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
           <button
             onClick={goToNext}
-            className="cursor-pointer absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 sm:p-3 text-white backdrop-blur-sm transition-all hover:bg-black/70"
+            className="cursor-pointer rounded-full bg-black/50 p-1.5 sm:p-2 text-white backdrop-blur-sm transition-all hover:bg-black/70"
             aria-label="Siguiente"
           >
-            <svg className="h-5 sm:h-6 w-5 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
-        </>
-      )}
-
-      {/* Dots Navigation */}
-      {movies.length > 1 && (
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 flex -translate-x-1/2 gap-1 sm:gap-2">
-          {movies.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`cursor-pointer h-1 sm:h-1.5 rounded-full transition-all ${
-                index === currentIndex
-                  ? 'w-6 sm:w-8 bg-red-600'
-                  : 'w-1 sm:w-1.5 bg-white/50 hover:bg-white/70'
-              }`}
-              aria-label={`Ir a slide ${index + 1}`}
-            />
-          ))}
         </div>
       )}
     </section>
