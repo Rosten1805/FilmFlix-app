@@ -32,7 +32,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
   return (
     <div className="min-h-screen bg-[#000000] text-white">
       {/* Hero Section with Backdrop */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[280px] sm:h-[380px] lg:h-[500px] w-full overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -50,7 +50,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
         </div>
 
         {/* Content with Poster */}
-        <div className="relative mx-auto flex h-full items-end px-[65px] pb-12">
+        <div className="relative mx-auto flex h-full items-end px-4 sm:px-6 lg:px-[65px] pb-8 sm:pb-12">
           <div className="flex gap-8">
             {/* Poster */}
             <div className="hidden shrink-0 sm:block">
@@ -105,7 +105,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
       </section>
 
       {/* Main Content */}
-      <main className="mx-auto px-[65px] py-8">
+      <main className="mx-auto px-4 sm:px-6 lg:px-[65px] py-6 sm:py-8">
         {/* Trailer */}
         <TrailerSection videos={movie.videos?.results} />
 

@@ -33,7 +33,7 @@ export default async function TVShowPage({ params }: TVShowPageProps) {
   return (
     <div className="min-h-screen bg-[#000000] text-white">
       {/* Hero Section with Backdrop */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[280px] sm:h-[380px] lg:h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={backdropUrl}
@@ -47,7 +47,7 @@ export default async function TVShowPage({ params }: TVShowPageProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/40 to-transparent" />
         </div>
 
-        <div className="relative mx-auto flex h-full items-end px-[65px] pb-12">
+        <div className="relative mx-auto flex h-full items-end px-4 sm:px-6 lg:px-[65px] pb-8 sm:pb-12">
           <div className="flex gap-8">
             <div className="hidden shrink-0 sm:block">
               <div className="relative h-[450px] w-[300px] overflow-hidden rounded-lg shadow-2xl">
@@ -104,7 +104,7 @@ export default async function TVShowPage({ params }: TVShowPageProps) {
       </section>
 
       {/* Main Content */}
-      <main className="mx-auto px-[65px] py-8">
+      <main className="mx-auto px-4 sm:px-6 lg:px-[65px] py-6 sm:py-8">
         {/* Trailer */}
         <TrailerSection videos={show.videos?.results} />
 
